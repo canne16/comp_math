@@ -37,6 +37,11 @@ def matrixToSLE(matrix:np.ndarray, limit:int):
     x = np.array([random.randint(-limit, limit) for i in range(size)])
     f = matrix @ x
 
-    print(matrix, x, f)
+    printSLE(matrix, x, f)
 
     return x, f
+
+def printSLE(matrix:np.ndarray, x:np.array, f:np.array):
+    size = matrix.shape[0]
+    for i in range(size):
+        print(f'{matrix[i]} [{x[i]:3}] -> [{f[i]}]')
