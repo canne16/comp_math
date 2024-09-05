@@ -9,7 +9,7 @@ A = matrix_generator.generate_inv_mat(N, scale)
 x_ref, f = matrix_generator.matrixToSLE(A, scale)       
 
 
-x = np.array([0]*N).astype('float32')
+x = np.zeros_like(f)
 
 for cycle in range(N_iterations):
     for j in range(N):  

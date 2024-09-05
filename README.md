@@ -6,7 +6,7 @@ The repository contains some algorithms which can be applied to a wide range of 
 ## Systems of linear equations
 
 One of the most popular problems is linear system solving. There are several methods that can be used (with certain reservations).
-Let $`A\textbf{x} = \textbf{b}` be a square system of n linear equations, where:
+Let $`A\textbf{x} = \textbf{b}$` be a square system of n linear equations, where:
 ![matrix](https://wikimedia.org/api/rest_v1/media/math/render/svg/98608e9e95d5acad149813eca75c8108acec308a)
 
 List of methods:
