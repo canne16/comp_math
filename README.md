@@ -5,5 +5,5 @@
 
 ### Systems of linear equations
 
-[x] - Jacobi method
-[]  - Seidel method
+- [x] Jacobi method
+- [ ] Seidel method
