@@ -34,17 +34,15 @@ A_{n,n} =
  \end{pmatrix}, \quad
 ```
 
-List of methods:
-
-- [x] Jacobi method
-- [ ] Seidel method
-
 ### Jacobi method
 
 Jacobi method is based on the *Contraction mapping theorem*. That is why there are some conditions without which the iterative sequence won't converge.
 
 The method works if:
 
-- cond1
+- ```math
+    \abs{a^i_i} > \sum_{i\neq j}{\abs{a_i^j}}
+  ```
+
 - cond2
 - ...
