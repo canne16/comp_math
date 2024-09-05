@@ -9,8 +9,8 @@ def generate_inv_mat(size:int, scale:int):
         'scale' sets an approximate size of an element    
     '''
 
-    matrix = np.eye(size).astype(int)
-    old_matrix = np.eye(size).astype(int)
+    matrix = np.eye(size)
+    old_matrix = np.eye(size)
 
     for i in range(size):
         for j in range(size):
@@ -23,21 +23,6 @@ def generate_inv_mat(size:int, scale:int):
         matrix[i][i] *= random.sample([-1, 1], 1)[0]
 
     return matrix 
-
-
-def matJacobiCorr(matrix:np.ndarray):
-    size = matrix.shape[0]
-
-    diffs = [np.sum(np.abs(matrix[i]))-2*abs(matrix[i][i]) for i in range(size)]
-
-    max_arg = np.argmax(diffs)
-    if diffs[max_arg] > 0:
-        if matrix[max_arg][max_arg] > 0:
-            matrix = matrix + np.eye(size)*(diffs[max_arg]+1)
-        else:
-            matrix = matrix - np.eye(size)*(diffs[max_arg]+1)
-        
-    return matrix
 
 
 def detCalc(matrix:np.ndarray):
@@ -61,7 +46,7 @@ def matrixToSLE(matrix:np.ndarray, scale:int):
     x = np.array([random.randint(-scale, scale) for i in range(size)]).astype(int)
     f = matrix @ x
 
-    printSLE(matrix, x, f)
+    # printSLE(matrix, x, f)
 
     return x, f
 
