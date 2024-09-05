@@ -18,22 +18,9 @@ def generate_inv_mat(size:int, scale:int):
                 matrix[i] += old_matrix[j]*random.randint(-scale,scale)  
         
     for i in range(size):
-        matrix[i][i] *= random.randint(-scale, scale)
-        if matrix[i][i] == 0:
-            for j in range(size):
-                if matrix[j][i] != 0:
-                    matrix[i] += matrix[j]
-                    break
-            if matrix[i][i] == 0:
-                print('FUCK') 
-                while True:
-                    matrix += old_matrix
-                    flag = False
-                    for i in range(size):
-                        if matrix[i][i] == 0:
-                            flag = True
-                    if flag == False:
-                        break
+        for j in range(size):
+            matrix[i][i] += abs(matrix[i][j])
+        matrix[i][i] *= random.sample([-1, 1], 1)[0]
 
     return matrix 
 
