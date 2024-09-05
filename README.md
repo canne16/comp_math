@@ -15,7 +15,7 @@ A_{n,n} =
   a_{2,1} & a_{2,2} & \cdots & a_{2,n} \\
   \vdots  & \vdots  & \ddots & \vdots  \\
   a_{n,1} & a_{n,2} & \cdots & a_{n,n} 
- \end{pmatrix},  
+ \end{pmatrix}, \quad
 
 \boldsymbol{x} = 
  \begin{pmatrix}
@@ -23,7 +23,15 @@ A_{n,n} =
   x_{2}\\
   \vdots\\
   x_{n} 
- \end{pmatrix}
+ \end{pmatrix}, \quad
+
+ \boldsymbol{b} = 
+ \begin{pmatrix}
+  b_{1}\\
+  b_{2}\\
+  \vdots\\
+  b_{n} 
+ \end{pmatrix}, \quad
 ```
 
 List of methods:
