@@ -15,13 +15,13 @@ A_{n,n} =
   a_{2,1} & a_{2,2} & \cdots & a_{2,n} \\
   \vdots  & \vdots  & \ddots & \vdots  \\
   a_{n,1} & a_{n,2} & \cdots & a_{n,n} 
- \end{pmatrix},
+ \end{pmatrix},  
 
 \boldsymbol{x} = 
  \begin{pmatrix}
   x_{1}\\
-  x_{2} \\
-  \vdots  & \vdots  & \ddots & \vdots  \\
+  x_{2}\\
+  \vdots\\
   x_{n} 
  \end{pmatrix}
 ```
