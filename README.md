@@ -41,7 +41,7 @@ Jacobi method is based on the *Contraction mapping theorem*. That is why there a
 The method works if:
 
 - ```math
-    \abs{a^i_i} > \sum_{i\neq j}{\abs{a_i^j}}
+    |a^i_i| > \sum_{i\neq j}{|a_i^j|}
   ```
 
 - cond2
