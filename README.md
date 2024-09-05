@@ -38,11 +38,14 @@ A_{n,n} =
 
 Jacobi method is based on the *Contraction mapping theorem*. That is why there are some conditions without which the iterative sequence won't converge.
 
-The method works if:
+The method works in these cases:
 
 - ```math
-    |a^i_i| > \sum_{i\neq j}{|a_i^j|}
+    |a^i_i| > \sum_{i\neq j}{|a_i^j|} \quad \forall i
   ```
 
-- cond2
+- ```math
+    |a^i_i| > \sum_{i\neq j}{|a_j^i|} \quad \forall i
+  ```
+  
 - ...
