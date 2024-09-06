@@ -11,7 +11,7 @@ x_ref, f = matGen.matToSLE(A, scale)
 
 x = np.zeros_like(f)
 
-for cycle in range(N_iterations):
+for iteration in range(N_iterations):
     for j in range(N):  
         x[j] = f[j]/A[j][j] - np.dot(A[j]/A[j][j], x) + x[j]
 
