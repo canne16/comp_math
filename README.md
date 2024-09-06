@@ -34,8 +34,10 @@ A_{n,n} =
  \end{pmatrix}, \quad
 ```
 
-### Jacobi method
+### [Jacobi method](https://en.wikipedia.org/wiki/Jacobi_method)
 
-Jacobi method is based on the *Contraction mapping theorem*. That is why there are some conditions without which the iterative sequence won't converge (diagonally dominance). The $\boldsymbol{x}^j$ are calculated separately, so the process can be paralleled.
+Jacobi method is based on the *Contraction mapping theorem*. That is why there are some conditions without which the iterative sequence won't converge (diagonal dominance). The $\boldsymbol{x}^j$ are calculated separately, so the process can be paralleled.
 
-### Seidel method
+### [Seidel method](https://en.wikipedia.org/wiki/Gauss%E2%80%93Seidel_method)
+
+Seidel's method is a modification of Jacobi, in which the calculated $\boldsymbol{x}^{j-1}, \cdots, \boldsymbol{x}^{1}$ are being pasted in $\boldsymbol{x}^{j}$.
