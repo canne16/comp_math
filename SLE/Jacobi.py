@@ -1,9 +1,9 @@
 import numpy as np
-import SLE.matGen as matGen
+import matGen
 
 N = 10
-scale = 5
-N_iterations = 100
+scale = 100
+N_iterations = 1000
 
 A = matGen.randMat(N, scale)         
 x_ref, f = matGen.matToSLE(A, scale)       
@@ -11,12 +11,12 @@ x_ref, f = matGen.matToSLE(A, scale)
 
 x = np.zeros_like(f)
 
-for iteration in range(N_iterations):
+for iter in range(N_iterations):
+    x_old = x.copy()
     for j in range(N):  
-        x[j] = f[j]/A[j][j] - np.dot(A[j]/A[j][j], x) + x[j]
+        x[j] = (f[j] - np.dot(A[j], x_old))/A[j][j] + x_old[j]
 
 
-print('\nReal | Jacobi:\n')
-
+print('\n' + ' '*5 + 'Real | Jacobi:\n')
 for i in range(N):
-    print(f'{x_ref[i]:+} | {x[i]:+}')
+    print(f'{x_ref[i]:+9} | {x[i]:+}')
