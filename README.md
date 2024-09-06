@@ -36,16 +36,6 @@ A_{n,n} =
 
 ### Jacobi method
 
-Jacobi method is based on the *Contraction mapping theorem*. That is why there are some conditions without which the iterative sequence won't converge.
+Jacobi method is based on the *Contraction mapping theorem*. That is why there are some conditions without which the iterative sequence won't converge (diagonally dominance). The $\boldsymbol{x}^j$ are calculated separately, so the process can be paralleled.
 
-The method works in these cases:
-
-- ```math
-    |a^i_i| > \sum_{i\neq j}{|a_i^j|} \quad \forall i
-  ```
-
-- ```math
-    |a^i_i| > \sum_{i\neq j}{|a_j^i|} \quad \forall i
-  ```
-  
-- ...
+### Seidel method
