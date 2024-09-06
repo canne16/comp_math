@@ -2,7 +2,7 @@ import numpy as np
 import random
 
 
-def generate_inv_mat(size:int, scale:int):
+def randMat(size:int, scale:int):
     '''
         Generates invertible matrixes of size*size elements 
         with non-null diagonal elements. 
@@ -40,7 +40,7 @@ def detCalc(matrix:np.ndarray):
         return det
 
 
-def matrixToSLE(matrix:np.ndarray, scale:int):
+def matToSLE(matrix:np.ndarray, scale:int):
     "Returns a column of X and f"
     size = matrix.shape[0]
     x = np.array([random.randint(-scale, scale) for i in range(size)]).astype(int)

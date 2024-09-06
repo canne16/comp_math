@@ -1,12 +1,12 @@
 import numpy as np
-import matrix_generator
+import SLE.matGen as matGen
 
-N = 1000
+N = 10
 scale = 5
 N_iterations = 100
 
-A = matrix_generator.generate_inv_mat(N, scale)         
-x_ref, f = matrix_generator.matrixToSLE(A, scale)       
+A = matGen.randMat(N, scale)         
+x_ref, f = matGen.matToSLE(A, scale)       
 
 
 x = np.zeros_like(f)
