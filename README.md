@@ -31,7 +31,7 @@ A_{n,n} =
   b_{2}\\
   \vdots\\
   b_{n} 
- \end{pmatrix}, \quad
+ \end{pmatrix} 
 ```
 
 ### [Jacobi method](https://en.wikipedia.org/wiki/Jacobi_method)
