@@ -3,7 +3,9 @@ import matGen
 
 N = 10
 scale = 100
-N_iterations = 1000
+eps = 1e-6
+gamma = 1
+N_iterations = 0
 
 A = matGen.randMat(N, scale)         
 x_ref, f = matGen.matToSLE(A, scale)       
