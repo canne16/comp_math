@@ -9,8 +9,8 @@ def randMat(size:int, scale:int):
         'scale' sets an approximate size of an element    
     '''
 
-    matrix = np.eye(size)
-    old_matrix = np.eye(size)
+    matrix = np.eye(size, dtype=np.int32)
+    old_matrix = np.eye(size, dtype=np.int32)
 
     for i in range(size):
         for j in range(size):
@@ -20,6 +20,10 @@ def randMat(size:int, scale:int):
     for i in range(size):
         for j in range(size):
             matrix[i][i] += abs(matrix[i][j])
+            # matrix[i][i] += abs(matrix[j][i])
+        while matrix[i][i] == 0:
+            matrix[i][i] = random.randint(-scale,scale)
+
         matrix[i][i] *= random.sample([-1, 1], 1)[0]
 
     return matrix 
@@ -54,4 +58,8 @@ def matToSLE(matrix:np.ndarray, scale:int):
 def printSLE(matrix:np.ndarray, x:np.array, f:np.array):
     size = matrix.shape[0]
     for i in range(size):
-        print(f'{matrix[i]} [{x[i]:3}] -> [{f[i]}]')
+        print('[', end='')
+        for j in range(size):
+            print(f'{matrix[i][j]:4.1f} ', end='')
+        print(f'][{x[i]:4.1f}] -> [{f[i]:4.1f}]')
+        

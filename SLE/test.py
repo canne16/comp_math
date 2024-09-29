@@ -1,22 +1,36 @@
-import matGen
-from Jacobi import solve_jacobi
-from util import metr
+from matGen import randMat, matToSLE, printSLE
+from sys_solver import jacobi, seidel
+from util import metric
+import numpy as np
 
-eps = 1e-20
-N = 10
+eps = 1e-2
+N = 4
 scale = 100
 
 print(f'\nEpsilon: {eps}')
 
-A = matGen.randMat(N, scale)         
-x_ref, f = matGen.matToSLE(A, scale)       
+for i in range(1):
 
-x = solve_jacobi(A, f, eps)
+    # A = randMat(N, scale)
+    # x_ref, f = matToSLE(A, scale)
+    
+    A = np.array([
+        [10.123, 5.352, 3.123],
+        [3.11, 4.92, 1.19],
+        [3.14, 4.47, 11.99],
+    ], dtype=np.float32)
 
-if metr(x, x_ref) > eps:
-    print(f'bruh: norm(x-x_ref) {metr(x, x_ref)} > {eps} eps')
+    x_ref = np.array([2.71, 3.14, 4.13])
+    f = A @ x_ref
 
+    printSLE(A, x_ref, f)
 
-# print('\n' + ' '*5 + 'Real | Jacobi:\n')
-# for i in range(N):
-#     print(f'{x_ref[i]:+9} | {x[i]:+}')
+    x_1 = jacobi(A, f, eps)
+    x_2 = seidel(A, f, eps)
+
+    # if metric(x_2, x_ref) > eps:
+    #     print(f'bruh: norm(x-x_ref) {metric(x_2, x_ref)} > {eps} eps')
+
+    print('\n' + ' '*5 + 'Real |' + ' '*4 + 'Jacobi |' + ' '*5 + 'Seidel:\n')
+    for i in range(x_1.shape[0]):
+        print(f'{x_ref[i]:+9.3f} | {x_1[i]:+9.3f} | {x_2[i]:+9.3f}')
