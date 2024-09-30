@@ -1,5 +1,6 @@
 import numpy as np
 from util import get_gamma, metric
+from matGen import printSLE
 
 # Метод Якоби
 def jacobi(A, f, eps):
@@ -81,3 +82,25 @@ def fwd_3(A, f):
         x[i] = E[i] + F[i]*x[i+1]
 
     return x
+
+# Метод наискорейшего спуска
+def grad_desc(A, f, eps):
+
+    x = np.zeros_like(f)
+    x_new = x.copy()
+
+    if np.any(A.T!=A):
+        f = A.T @ f
+        A = A.T @ A
+
+    while True:
+        x = x_new
+        r = A @ x - f
+        alpha = np.dot(r, r)/np.dot(A@r, r)
+        x_new = x - alpha*r
+        
+        if metric(x, x_new) < eps/2:
+            break
+
+    return x_new
+
