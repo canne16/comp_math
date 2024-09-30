@@ -3,7 +3,7 @@ from sys_solver import jacobi, seidel
 from util import metric
 import numpy as np
 
-eps = 1e-2
+eps = 1e-3
 N = 4
 scale = 100
 
@@ -16,7 +16,7 @@ for i in range(1):
     
     A = np.array([
         [10.123, 5.352, 3.123],
-        [3.11, 4.92, 1.19],
+        [3.11, 21.34, 1.19],
         [3.14, 4.47, 11.99],
     ], dtype=np.float32)
 
@@ -28,8 +28,8 @@ for i in range(1):
     x_1 = jacobi(A, f, eps)
     x_2 = seidel(A, f, eps)
 
-    # if metric(x_2, x_ref) > eps:
-    #     print(f'bruh: norm(x-x_ref) {metric(x_2, x_ref)} > {eps} eps')
+    if metric(x_2, x_ref) > eps:
+        print(f'bruh: norm(x-x_ref) {metric(x_2, x_ref)} > {eps} eps')
 
     print('\n' + ' '*5 + 'Real |' + ' '*4 + 'Jacobi |' + ' '*5 + 'Seidel:\n')
     for i in range(x_1.shape[0]):

@@ -1,7 +1,7 @@
 import numpy as np
 from util import get_gamma, metric
 
-
+# Метод Якоби
 def jacobi(A, f, eps):
 
     print('jacobi', end=' ')
@@ -13,7 +13,7 @@ def jacobi(A, f, eps):
 
     return x
 
-
+# Метод Зейделя
 def seidel(A, f, eps):
 
     print('seidel', end=' ')
@@ -25,14 +25,14 @@ def seidel(A, f, eps):
 
     return x
 
-
+# Итерационаая часть алгоритма якоби
 def jacobi_core(A, f, x_old, N):
     x = x_old.copy()
     for j in range(N):  
         x[j] = (f[j] - np.dot(A[j], x_old))/A[j][j] + x_old[j]
     return x
 
-
+# Определение числа итераций
 def pre_calc(A, f, eps):
 
     N = A.shape[0]
@@ -58,3 +58,26 @@ def pre_calc(A, f, eps):
 
     return x_1, N_iterations
 
+# Частный случай прямого метода на 3-диагональной матрице
+def fwd_3(A, f):
+    
+    N = A.shape[0]
+
+    x = np.zeros_like(f, dtype=np.float32)
+    
+    E = np.zeros(N-1, dtype=np.float32)
+    F = np.zeros(N-1, dtype=np.float32)
+    
+    E[0] = f[0]/A[0][0]
+    F[0] = -A[0][1]/A[0][0]
+
+    for i in range(1, N-1):
+        E[i] = (f[i]-A[i][i-1]*E[i-1])/(A[i][i-1]*F[i-1]+A[i][i])
+        F[i] = -A[i][i+1]/(A[i][i-1]*F[i-1]+A[i][i])
+
+    x[N-1] = (f[N-1]-A[N-1][N-2]*E[N-2])/(A[N-1][N-1]+A[N-1][N-2]*F[N-2])
+
+    for i in range(N-2, -1, -1):
+        x[i] = E[i] + F[i]*x[i+1]
+
+    return x

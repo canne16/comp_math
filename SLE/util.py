@@ -22,4 +22,4 @@ def norm_p(x: np.array, p: int):
     return np.sum(pow(x, p))**(1/p)
 
 def metric(x1: np.array, x2: np.array):
-    return norm_r(x1-x2)
+    return norm_2(x1-x2)

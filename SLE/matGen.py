@@ -60,6 +60,6 @@ def printSLE(matrix:np.ndarray, x:np.array, f:np.array):
     for i in range(size):
         print('[', end='')
         for j in range(size):
-            print(f'{matrix[i][j]:4.1f} ', end='')
-        print(f'][{x[i]:4.1f}] -> [{f[i]:4.1f}]')
+            print(f'{matrix[i][j]:5} ', end='')
+        print(f'][{x[i]:5.1f}] -> [{f[i]:5.1f}]')
         
