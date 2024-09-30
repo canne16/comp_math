@@ -11,12 +11,6 @@ def jacobi(A, f, eps):
         x_old = x.copy()
         x = jacobi_core(A, f, x_old, A.shape[0])
 
-    # while True:
-    #     x_old = x.copy()
-    #     x = jacobi_core(A, f, x_old, N)
-    #     if metric(x, x_old) < eps/2:
-    #         break
-
     return x
 
 
@@ -63,3 +57,4 @@ def pre_calc(A, f, eps):
     print(f'iterations: {N_iterations}')
 
     return x_1, N_iterations
+
