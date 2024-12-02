@@ -2,19 +2,19 @@ import numpy as np
 from solver import bisect, newton
 
 eps = 1e-12
-a = 0
-b = 2**10
+a = -10
+b = 10
 
 def func(x):
-    return 1/x-1
+    return x**10
 
 def deriv_1(x):
-    return -1/x**2
+    return 10*x**9
 
 def deriv_2(x):
-    return 1/2/x**3
+    return 90*x**8
 
 # x = bisect(func, a, b, eps)
-x = newton(func, deriv_1, deriv_2, a, b, eps)
+x = newton(func, deriv_1, deriv_2, a, b)
 
-print(x)    
+print(f'{x:.13f}')    
