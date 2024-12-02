@@ -104,3 +104,4 @@ def grad_desc(A, f, eps):
 
     return x_new
 
+
