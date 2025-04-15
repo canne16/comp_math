@@ -1,0 +1,2 @@
+#define PROJECT_VERSION "@PROJECT_VERSION@"
+#define EXPORT_PATH "../export_data/"

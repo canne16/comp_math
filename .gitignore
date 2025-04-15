@@ -1,0 +1,41 @@
+# Ignore build directories
+/build/
+/Cpp/compmath/build/
+/Python/Plotter/__pycache__/
+
+# Ignore compiled object files and libraries
+*.o
+*.a
+*.so
+
+# Ignore generated files
+*.csv
+*.out
+*.log
+*.tmp
+
+# Ignore Python cache files
+*.pyc
+*.pyo
+__pycache__/
+
+# Ignore Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Ignore CMake generated files
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+
+# Ignore export data directory
+/export_data/
+
+# Ignore user-specific files
+*.swp
+*.swo
+*.bak
+*.~*
+.DS_Store
+
+.vscode/
