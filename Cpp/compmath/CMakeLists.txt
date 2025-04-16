@@ -18,13 +18,15 @@ set(TEST_DIR "${CMAKE_SOURCE_DIR}/test")
 add_library(compMath STATIC)
 target_sources(compMath
     PRIVATE
-        ${SRC_DIR}/differentiation.cc
+        ${SRC_DIR}/main.cc
+        ${SRC_DIR}/export_data.cc
         # ${SRC_DIR}/Analyzer.cpp
         # ${SRC_DIR}/Visualize.cpp
 )
 target_include_directories(compMath
     PUBLIC
         ${CMAKE_CURRENT_SOURCE_DIR}/include
+        "${PROJECT_BINARY_DIR}"
 )
 
 # Set library properties
@@ -49,7 +51,6 @@ FetchContent_MakeAvailable(googletest)
 add_executable(runTests 
                         ${TEST_DIR}/test_main.cc
                         ${TEST_DIR}/test_differentiation.cc
-                        ${SRC_DIR}/differentiation.cc
               )
 
 target_compile_definitions(runTests PUBLIC TESTING)
@@ -66,9 +67,6 @@ target_link_libraries(runTests gtest gtest_main pthread)
 enable_testing()
 add_test(NAME BigTest COMMAND runTests)
 
-
-find_package(Boost REQUIRED COMPONENTS iostreams filesystem system)
-
 add_executable(TestApplication ${TEST_DIR}/test_app.cc)
 target_include_directories(TestApplication PRIVATE
                                 ${CMAKE_SOURCE_DIR}/include
@@ -77,7 +75,4 @@ target_include_directories(TestApplication PRIVATE
 
 target_link_libraries(TestApplication PRIVATE 
                         compMath
-                        Boost::iostreams
-                        Boost::filesystem
-                        Boost::system   
-                      )
+                     )
