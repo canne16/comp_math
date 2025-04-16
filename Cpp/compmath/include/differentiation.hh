@@ -43,7 +43,7 @@ std::vector<T> differentiate(
         result[0] = (-25*func[0] + 48*func[1] - 36*func[2] + 16*func[3] - 3*func[4]) / (12*h);                 // left margin
         result[1] = ( -3*func[0] - 10*func[1] + 18*func[2] -  6*func[3] + func[4]) / (12*h);                 // left margin
         
-        result[len-1] = (25*func[0] - 48*func[1] + 36*func[2] - 16*func[3] + 3*func[4]) / (12*h);  // right margin
+        result[len-1] = (25*func[len-1] - 48*func[len-2] + 36*func[len-3] - 16*func[len-4] + 3*func[len-5]) / (12*h);  // right margin
         result[len-2] = (3*func[len-1] + 10*func[len-2] - 18*func[len-3] + 6*func[len-4] - func[len-5]) / (12*h);  // right margin
     
     }
@@ -66,16 +66,10 @@ std::vector<T> twice_differenciate(
     size_t len = func.size();
     
     for (size_t i = 1; i < len - 1; ++i)
-        result[i] = (func[i] - 2 * func[i-1] + func[i-2]) / cmath::pow(h, 2);
+        result[i] = (func[i] - 2 * func[i-1] + func[i-2]) / pow(h, 2);
     
     result[0] = (-3*func[0] + 4*func[1] - func[2]) / (2*h);                 // left margin
     result[len-1] = (3*func[len-1] - 4*func[len-2] + func[len-3]) / (2*h);  // right margin
-    
-
-
-
-
-
 
     return result;
 }

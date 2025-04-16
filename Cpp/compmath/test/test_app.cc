@@ -23,7 +23,7 @@ int main(){
         function_values.push_back(funtion(i*h));
     }
 
-    std::vector<double> derivative = compmath::differentiate(function_values, h, 2);
+    std::vector<double> derivative = compmath::differentiate(function_values, h, 4);
 
     compmath::export_data_to_csv("function.csv", x_points, function_values);
     compmath::export_data_to_csv("derivative.csv", x_points, derivative);
