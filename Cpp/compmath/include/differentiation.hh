@@ -8,16 +8,18 @@
 namespace compmath {
 
 template <typename T>
-std::vector<T> differentiate(
-    const std::vector<T> &func, 
+std::vector<T>& differentiate(
+    const std::vector<T> &func,
+    std::vector<T>& result,
     const T &h, 
     int order = 2
 ){
     if (order != 1 && order != 2 && order != 4)
         throw std::invalid_argument("Invalid order of differentiation");
     
-    std::vector<T> result = std::vector<T>(func.size());
-    
+    if (func.size() != result.size())
+        throw std::invalid_argument("Derivative must be the same shape as function");
+        
     size_t len = func.size();
     
     if (order == 1) {
@@ -53,16 +55,18 @@ std::vector<T> differentiate(
 
 
 template <typename T>
-std::vector<T> differentiate_twice(
+std::vector<T>& differentiate_twice(
     const std::vector<T> &func, 
+    std::vector<T>& result,
     const T &h, 
     int order = 2
 ){
     if (order != 2)
         throw std::invalid_argument("Not implemented for order != 2");
-    
-    std::vector<T> result = std::vector<T>(func.size());
-    
+        
+    if (func.size() != result.size())
+        throw std::invalid_argument("Derivative must be the same shape as function");
+        
     size_t len = func.size();
     
     for (size_t i = 1; i < len - 1; ++i)

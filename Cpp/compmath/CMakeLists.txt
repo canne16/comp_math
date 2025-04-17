@@ -52,6 +52,8 @@ FetchContent_MakeAvailable(googletest)
 add_executable(runTests 
                         ${TEST_DIR}/test_main.cc
                         ${TEST_DIR}/test_differentiation.cc
+                        ${SRC_DIR}/export_data.cc
+                        ${SRC_DIR}/norm.cc
               )
 target_compile_definitions(runTests PUBLIC TESTING)
 target_include_directories(runTests PRIVATE
@@ -63,6 +65,8 @@ target_link_libraries(runTests gtest gtest_main pthread)
 # Differentiation test
 add_executable(runDifferentiationTests 
                         ${TEST_DIR}/test_differentiation.cc
+                        ${SRC_DIR}/export_data.cc
+                        ${SRC_DIR}/norm.cc
               )
 target_compile_definitions(runDifferentiationTests PUBLIC TESTING)
 target_include_directories(runDifferentiationTests PRIVATE

@@ -34,8 +34,11 @@ int main(){
         true_second_derivative.push_back(second_derivative_function(i*h));
     }
 
-    std::vector<double> derivative = compmath::differentiate(function_values, h, 4);
-    std::vector<double> second_derivative = compmath::differentiate_twice(function_values, h, 2);
+    std::vector<double> derivative = std::vector<double>(function_values.size());
+    compmath::differentiate(function_values, derivative, h, 4);
+
+    std::vector<double> second_derivative = std::vector<double>(function_values.size());
+    compmath::differentiate_twice(function_values, second_derivative, h, 2);
 
     compmath::export_data_to_csv("function.csv", x_points, function_values);
     compmath::export_data_to_csv("true_der.csv", x_points, true_derivative);
