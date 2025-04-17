@@ -68,10 +68,8 @@ std::vector<T> twice_differentiate(
     for (size_t i = 1; i < len - 1; ++i)
         result[i] = (func[i+1] - 2*func[i] + func[i-1]) / pow(h, 2);
 
-        // TODO: check coefficents
-
-    result[0]     = ( 2*func[0]     - 5*func[1]     + 4*func[2]     - func[3]    ) / pow(h, 2);                 // left margin
-    result[len-1] = (-2*func[len-1] + 5*func[len-2] - 4*func[len-3] + func[len-4]) / pow(h, 2);  // right margin
+    result[0]     = (2*func[0]     - 5*func[1]     + 4*func[2]     - func[3]    ) / pow(h, 2);  // left margin
+    result[len-1] = (2*func[len-1] - 5*func[len-2] + 4*func[len-3] - func[len-4]) / pow(h, 2);  // right margin
 
     return result;
 }
