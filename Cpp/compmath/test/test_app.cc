@@ -1,7 +1,6 @@
 #include <utility>
 #include <iostream>
 
-#include "gnuplot-iostream.h"
 #include "differentiation.hh"
 #include "export_data.hh"
 
@@ -36,7 +35,7 @@ int main(){
     }
 
     std::vector<double> derivative = compmath::differentiate(function_values, h, 4);
-    std::vector<double> second_derivative = compmath::twice_differentiate(function_values, h, 2);
+    std::vector<double> second_derivative = compmath::differentiate_twice(function_values, h, 2);
 
     compmath::export_data_to_csv("function.csv", x_points, function_values);
     compmath::export_data_to_csv("true_der.csv", x_points, true_derivative);

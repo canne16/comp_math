@@ -53,7 +53,7 @@ std::vector<T> differentiate(
 
 
 template <typename T>
-std::vector<T> twice_differentiate(
+std::vector<T> differentiate_twice(
     const std::vector<T> &func, 
     const T &h, 
     int order = 2
