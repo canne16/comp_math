@@ -48,25 +48,39 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(googletest)
 
+# Main test
 add_executable(runTests 
                         ${TEST_DIR}/test_main.cc
                         ${TEST_DIR}/test_differentiation.cc
               )
-
 target_compile_definitions(runTests PUBLIC TESTING)
-
-
 target_include_directories(runTests PRIVATE
                             ${INCLUDE_DIR}
                             "${PROJECT_BINARY_DIR}"
                           )
-
 target_link_libraries(runTests gtest gtest_main pthread)
+
+# Differentiation test
+add_executable(runDifferentiationTests 
+                        ${TEST_DIR}/test_differentiation.cc
+              )
+target_compile_definitions(runDifferentiationTests PUBLIC TESTING)
+target_include_directories(runDifferentiationTests PRIVATE
+                            ${INCLUDE_DIR}
+                            "${PROJECT_BINARY_DIR}"
+                          )
+target_link_libraries(runDifferentiationTests gtest gtest_main pthread)
 
 
 enable_testing()
+# Register the test
 add_test(NAME BigTest COMMAND runTests)
+add_test(NAME DifferentiationTest COMMAND runDifferentiationTests)
 
+
+
+
+# Add a test application
 add_executable(TestApplication ${TEST_DIR}/test_app.cc)
 target_include_directories(TestApplication PRIVATE
                                 ${CMAKE_SOURCE_DIR}/include
