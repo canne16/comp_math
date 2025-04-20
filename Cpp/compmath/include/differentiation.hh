@@ -7,6 +7,18 @@
 
 namespace compmath {
 
+
+/**
+ * @brief Numerically compute the first derivative of a sampled function using finite differences.
+ * 
+ * @tparam T Numeric type (e.g., double, float)
+ * @param func Vector of sampled function values
+ * @param result Vector to store the computed derivative (must be same size as func)
+ * @param h Step size between samples
+ * @param order Order of the finite difference scheme: 1 (forward), 2 (central), or 4 (fourth-order central). Default: 2
+ * @return Reference to result vector containing the derivative
+ * @throws std::invalid_argument if order is not 1, 2, or 4, or if func and result sizes do not match
+ */
 template <typename T>
 std::vector<T>& differentiate(
     const std::vector<T> &func,
@@ -54,6 +66,17 @@ std::vector<T>& differentiate(
 }
 
 
+/**
+ * @brief Numerically compute the second derivative of a sampled function using finite differences (second order).
+ * 
+ * @tparam T Numeric type (e.g., double, float)
+ * @param func Vector of sampled function values
+ * @param result Vector to store the computed second derivative (must be same size as func)
+ * @param h Step size between samples
+ * @param order Order of the finite difference scheme (only 2 is implemented). Default: 2
+ * @return Reference to result vector containing the second derivative
+ * @throws std::invalid_argument if order != 2 or if func and result sizes do not match
+ */
 template <typename T>
 std::vector<T>& differentiate_twice(
     const std::vector<T> &func, 
@@ -77,23 +100,5 @@ std::vector<T>& differentiate_twice(
 
     return result;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 }

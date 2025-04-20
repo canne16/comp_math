@@ -2,10 +2,11 @@
 #include <iostream>
 
 #include "differentiation.hh"
+#include "integration.hh"
 #include "export_data.hh"
 
 
-double funtion(double x) {
+double function(double x) {
     return x / (1 + pow(x, 3));
 }
 
@@ -29,7 +30,7 @@ int main(){
 
     for (int i = 0; i < NUM_POINTS; i++) {
         x_points.push_back(i*h);
-        function_values.push_back(funtion(i*h));
+        function_values.push_back(function(i*h));
         true_derivative.push_back(derivative_function(i*h));
         true_second_derivative.push_back(second_derivative_function(i*h));
     }
@@ -46,6 +47,17 @@ int main(){
 
     compmath::export_data_to_csv("derivative.csv", x_points, derivative);
     compmath::export_data_to_csv("sec_der.csv", x_points, second_derivative);
+
+    std::pair<double, double> res = compmath::runge_rule(
+        compmath::integrate_simpson<double, decltype(function)>,
+        function,
+        1.0, 10.0,
+        500,
+        4
+    );
+
+    std::cout << "Integral: " << res.first << std::endl;
+    std::cout << "Error: " << res.second << std::endl;
 
     return 0;
 }
