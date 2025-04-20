@@ -39,3 +39,4 @@ Makefile
 .DS_Store
 
 .vscode/
+export_data/*
