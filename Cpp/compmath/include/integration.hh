@@ -4,7 +4,6 @@
 #include <stdexcept>
 #include <cassert>
 #include <cmath>
-#include <functional>
 
 namespace compmath {
 
