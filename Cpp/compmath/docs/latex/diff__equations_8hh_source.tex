@@ -1,0 +1,90 @@
+\doxysection{diff\+\_\+equations.\+hh}
+\hypertarget{diff__equations_8hh_source}{}\label{diff__equations_8hh_source}\index{include/diff\_equations.hh@{include/diff\_equations.hh}}
+\mbox{\hyperlink{diff__equations_8hh}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <functional>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <cmath>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <stdexcept>}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacecompmath}{compmath}}\ \{}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00021\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ Func>}
+\DoxyCodeLine{00022\ std::vector<std::vector<T>>\ \mbox{\hyperlink{namespacecompmath_a209404be0ca6feb45a0155cd802ea649}{solve\_diff\_euler}}(}
+\DoxyCodeLine{00023\ \ \ \ \ Func\ f,}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<T>\&\ f\_t0,}
+\DoxyCodeLine{00025\ \ \ \ \ T\ t1,}
+\DoxyCodeLine{00026\ \ \ \ \ T\ t2,}
+\DoxyCodeLine{00027\ \ \ \ \ T\ h}
+\DoxyCodeLine{00028\ )\ \{}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ num\_steps\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{size\_t}\textcolor{keyword}{>}((t2\ -\/\ t1)\ /\ h);}
+\DoxyCodeLine{00030\ \ \ \ \ std::vector<std::vector<T>>\ solution(num\_steps\ +\ 1,\ f\_t0);}
+\DoxyCodeLine{00031\ \ \ \ \ solution[0]\ =\ f\_t0;}
+\DoxyCodeLine{00032\ \ \ \ \ T\ t\ =\ t1;}
+\DoxyCodeLine{00033\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ step\ =\ 1;\ step\ <=\ num\_steps;\ ++step)\ \{}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ solution[step]\ =\ solution[step\ -\/\ 1]\ +\ h\ *\ f(t,\ solution[step\ -\/\ 1]);}
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ t\ +=\ h;}
+\DoxyCodeLine{00036\ \ \ \ \ \}}
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordflow}{return}\ solution;}
+\DoxyCodeLine{00038\ \}}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00051\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ Func>}
+\DoxyCodeLine{00052\ std::vector<std::vector<T>>\ \mbox{\hyperlink{namespacecompmath_a3f6006ea7575b36cc1e8ca439b0bd23a}{solve\_diff\_trapez}}(}
+\DoxyCodeLine{00053\ \ \ \ \ Func\ f,}
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<T>\&\ f\_t0,}
+\DoxyCodeLine{00055\ \ \ \ \ T\ t1,}
+\DoxyCodeLine{00056\ \ \ \ \ T\ t2,}
+\DoxyCodeLine{00057\ \ \ \ \ T\ h}
+\DoxyCodeLine{00058\ )\ \{}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ num\_steps\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{size\_t}\textcolor{keyword}{>}((t2\ -\/\ t1)\ /\ h);}
+\DoxyCodeLine{00060\ \ \ \ \ std::vector<std::vector<T>>\ solution(num\_steps\ +\ 1,\ f\_t0);}
+\DoxyCodeLine{00061\ \ \ \ \ solution[0]\ =\ f\_t0;}
+\DoxyCodeLine{00062\ \ \ \ \ T\ t\ =\ t1;}
+\DoxyCodeLine{00063\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ step\ =\ 1;\ step\ <=\ num\_steps;\ ++step)\ \{}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ predicted\ =\ solution[step\ -\/\ 1]\ +\ h\ *\ f(t,\ solution[step\ -\/\ 1]);}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ solution[step]\ =\ solution[step\ -\/\ 1]\ +\ (h/2)\ *\ (f(t,\ solution[step\ -\/\ 1])\ +\ f(t\ +\ h,\ predicted));}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ t\ +=\ h;}
+\DoxyCodeLine{00067\ \ \ \ \ \}}
+\DoxyCodeLine{00068\ \ \ \ \ \textcolor{keywordflow}{return}\ solution;}
+\DoxyCodeLine{00069\ \}}
+\DoxyCodeLine{00070\ }
+\DoxyCodeLine{00082\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T,\ \textcolor{keyword}{typename}\ Func>}
+\DoxyCodeLine{00083\ std::vector<std::vector<T>>\ \mbox{\hyperlink{namespacecompmath_a21a03ac311257f7decb5f7cf9473ee56}{runge\_kutta}}(}
+\DoxyCodeLine{00084\ \ \ \ \ Func\ f,}
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<T>\&\ f\_t0,}
+\DoxyCodeLine{00086\ \ \ \ \ T\ t1,}
+\DoxyCodeLine{00087\ \ \ \ \ T\ t2,}
+\DoxyCodeLine{00088\ \ \ \ \ T\ h}
+\DoxyCodeLine{00089\ )\ \{}
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ num\_steps\ =\ \textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{size\_t}\textcolor{keyword}{>}((t2\ -\/\ t1)\ /\ h);}
+\DoxyCodeLine{00091\ \ \ \ \ std::vector<std::vector<T>>\ solution(num\_steps\ +\ 1,\ f\_t0);}
+\DoxyCodeLine{00092\ \ \ \ \ solution[0]\ =\ f\_t0;}
+\DoxyCodeLine{00093\ \ \ \ \ T\ time\ =\ t1;}
+\DoxyCodeLine{00094\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ step\ =\ 1;\ step\ <=\ num\_steps;\ ++step)\ \{}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \textcolor{keyword}{auto}\&\ y\ =\ solution[step\ -\/\ 1];}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ k1\ =\ f(time,\ y);}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ std::vector<T>\ yk2(y.size());}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ y.size();\ ++i)}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ yk2[i]\ =\ y[i]\ +\ h\ /\ 2\ *\ k1[i];}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ k2\ =\ f(time\ +\ h\ /\ 2,\ yk2);}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ std::vector<T>\ yk3(y.size());}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ y.size();\ ++i)}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \ \ \ \ yk3[i]\ =\ y[i]\ +\ h\ /\ 2\ *\ k2[i];}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ k3\ =\ f(time\ +\ h\ /\ 2,\ yk3);}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ std::vector<T>\ yk4(y.size());}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ y.size();\ ++i)}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ \ \ yk4[i]\ =\ y[i]\ +\ h\ *\ k3[i];}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ k4\ =\ f(time\ +\ h,\ yk4);}
+\DoxyCodeLine{00109\ \ \ \ \ \ \ \ \ solution[step]\ =\ y;}
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ y.size();\ ++i)}
+\DoxyCodeLine{00111\ \ \ \ \ \ \ \ \ \ \ \ \ solution[step][i]\ +=\ (h\ /\ 6)\ *\ (k1[i]\ +\ 2\ *\ k2[i]\ +\ 2\ *\ k3[i]\ +\ k4[i]);}
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ time\ +=\ h;}
+\DoxyCodeLine{00113\ \ \ \ \ \}}
+\DoxyCodeLine{00114\ \ \ \ \ \textcolor{keywordflow}{return}\ solution;}
+\DoxyCodeLine{00115\ \}}
+\DoxyCodeLine{00116\ }
+\DoxyCodeLine{00117\ \}\ \textcolor{comment}{//\ namespace\ compmath}}
+
+\end{DoxyCode}

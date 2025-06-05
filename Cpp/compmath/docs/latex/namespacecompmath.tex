@@ -1,0 +1,497 @@
+\doxysection{compmath Namespace Reference}
+\hypertarget{namespacecompmath}{}\label{namespacecompmath}\index{compmath@{compmath}}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T, typename Func$>$ }\\std\+::vector$<$ std\+::vector$<$ T $>$ $>$ \mbox{\hyperlink{namespacecompmath_a209404be0ca6feb45a0155cd802ea649}{solve\+\_\+diff\+\_\+euler}} (Func f, const std\+::vector$<$ T $>$ \&f\+\_\+t0, T t1, T t2, T h)
+\begin{DoxyCompactList}\small\item\em Solves an ODE system using the Euler method (1st order). \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T, typename Func$>$ }\\std\+::vector$<$ std\+::vector$<$ T $>$ $>$ \mbox{\hyperlink{namespacecompmath_a3f6006ea7575b36cc1e8ca439b0bd23a}{solve\+\_\+diff\+\_\+trapez}} (Func f, const std\+::vector$<$ T $>$ \&f\+\_\+t0, T t1, T t2, T h)
+\begin{DoxyCompactList}\small\item\em Solves an ODE system using the Trapezoidal method (2nd order). \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T, typename Func$>$ }\\std\+::vector$<$ std\+::vector$<$ T $>$ $>$ \mbox{\hyperlink{namespacecompmath_a21a03ac311257f7decb5f7cf9473ee56}{runge\+\_\+kutta}} (Func f, const std\+::vector$<$ T $>$ \&f\+\_\+t0, T t1, T t2, T h)
+\begin{DoxyCompactList}\small\item\em Solves an ODE system using the 4th order Runge-\/\+Kutta method. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T$>$ }\\std\+::vector$<$ T $>$ \& \mbox{\hyperlink{namespacecompmath_ac7fa18b197e428b2076af1cda7a1d6d8}{differentiate}} (const std\+::vector$<$ T $>$ \&func, std\+::vector$<$ T $>$ \&result, const T \&h, int order=2)
+\begin{DoxyCompactList}\small\item\em Numerically compute the first derivative of a sampled function using finite differences. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T$>$ }\\std\+::vector$<$ T $>$ \& \mbox{\hyperlink{namespacecompmath_ab4cf9854d18ca2d0c75b36489ea684d8}{differentiate\+\_\+twice}} (const std\+::vector$<$ T $>$ \&func, std\+::vector$<$ T $>$ \&result, const T \&h, int order=2)
+\begin{DoxyCompactList}\small\item\em Numerically compute the second derivative of a sampled function using finite differences (second order). \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{namespacecompmath_a13585df5be30268018e8805cccce6c5c}{create\+\_\+directory}} (const std\+::string \&dir)
+\item 
+{\footnotesize template$<$typename T$>$ }\\int \mbox{\hyperlink{namespacecompmath_a44cc276c4629067ee3fd9d412866fe56}{export\+\_\+data\+\_\+to\+\_\+csv}} (const std\+::string \&filename, const std\+::vector$<$ T $>$ \&x, const std\+::vector$<$ T $>$ \&func)
+\begin{DoxyCompactList}\small\item\em Exports data to a CSV file. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T, typename Func$>$ }\\T \mbox{\hyperlink{namespacecompmath_a33f82ca4615c994c81dec1641dbaff4d}{integrate\+\_\+trapez}} (Func func, T a, T b, size\+\_\+t n=1000)
+\begin{DoxyCompactList}\small\item\em Numerically integrate a function using the trapezoidal rule. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T, typename Func$>$ }\\T \mbox{\hyperlink{namespacecompmath_a52e2ea9905606b84ae806e0a53e03784}{integrate\+\_\+rect}} (Func func, T a, T b, size\+\_\+t n=1000, const std\+::string \&method="{}left"{})
+\begin{DoxyCompactList}\small\item\em Numerically integrate a function using the rectangle (left, right, or midpoint) rule. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T, typename Func$>$ }\\T \mbox{\hyperlink{namespacecompmath_a3c475f9baafb9044e7774b0b06d0a208}{integrate\+\_\+simpson}} (Func func, T a, T b, size\+\_\+t n=1000)
+\begin{DoxyCompactList}\small\item\em Numerically integrate a function using Simpson\textquotesingle{}s rule. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T, typename Func, typename Integrator$>$ }\\std\+::pair$<$ T, T $>$ \mbox{\hyperlink{namespacecompmath_a039b77c1cc6b56852fc495d7628ca41c}{runge\+\_\+rule}} (Integrator integrator, Func func, T a, T b, size\+\_\+t n, int order)
+\begin{DoxyCompactList}\small\item\em Estimate the integral and its error using Runge\textquotesingle{}s rule. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T$>$ }\\std\+::function$<$ T(T)$>$ \mbox{\hyperlink{namespacecompmath_ae332ac5a218c1e969ac34f0dcf77932c}{interpolate\+\_\+lagrange}} (const std\+::vector$<$ T $>$ \&x\+\_\+nodes, const std\+::vector$<$ T $>$ \&y\+\_\+values)
+\begin{DoxyCompactList}\small\item\em Constructs a Lagrange interpolating polynomial. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T$>$ }\\std\+::function$<$ T(T)$>$ \mbox{\hyperlink{namespacecompmath_a6d47857737d820e46dfe9c56bd5e23bc}{interpolate\+\_\+newton}} (const std\+::vector$<$ T $>$ \&x\+\_\+nodes, const std\+::vector$<$ T $>$ \&y\+\_\+values)
+\begin{DoxyCompactList}\small\item\em Constructs a Newton interpolating polynomial. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T$>$ }\\T \mbox{\hyperlink{namespacecompmath_ad08662a56b319d717d938db959cfe7a4}{norm\+\_\+inf}} (std\+::vector$<$ T $>$ \&v1, std\+::vector$<$ T $>$ \&v2)
+\item 
+{\footnotesize template$<$typename T$>$ }\\T \mbox{\hyperlink{namespacecompmath_af77c049ec35355071ef75407122277ff}{norm\+\_\+1}} (std\+::vector$<$ T $>$ \&v1, std\+::vector$<$ T $>$ \&v2)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{namespacecompmath_a13585df5be30268018e8805cccce6c5c}\index{compmath@{compmath}!create\_directory@{create\_directory}}
+\index{create\_directory@{create\_directory}!compmath@{compmath}}
+\doxysubsubsection{\texorpdfstring{create\_directory()}{create\_directory()}}
+{\footnotesize\ttfamily \label{namespacecompmath_a13585df5be30268018e8805cccce6c5c} 
+int compmath\+::create\+\_\+directory (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{dir}{}\end{DoxyParamCaption})}
+
+\Hypertarget{namespacecompmath_ac7fa18b197e428b2076af1cda7a1d6d8}\index{compmath@{compmath}!differentiate@{differentiate}}
+\index{differentiate@{differentiate}!compmath@{compmath}}
+\doxysubsubsection{\texorpdfstring{differentiate()}{differentiate()}}
+{\footnotesize\ttfamily \label{namespacecompmath_ac7fa18b197e428b2076af1cda7a1d6d8} 
+template$<$typename T$>$ \\
+std\+::vector$<$ T $>$ \& compmath\+::differentiate (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ T $>$ \&}]{func}{, }\item[{std\+::vector$<$ T $>$ \&}]{result}{, }\item[{const T \&}]{h}{, }\item[{int}]{order}{ = {\ttfamily 2}}\end{DoxyParamCaption})}
+
+
+
+Numerically compute the first derivative of a sampled function using finite differences. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Numeric type (e.\+g., double, float) \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em func} & Vector of sampled function values \\
+\hline
+{\em result} & Vector to store the computed derivative (must be same size as func) \\
+\hline
+{\em h} & Step size between samples \\
+\hline
+{\em order} & Order of the finite difference scheme\+: 1 (forward), 2 (central), or 4 (fourth-\/order central). Default\+: 2 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Reference to result vector containing the derivative 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if order is not 1, 2, or 4, or if func and result sizes do not match \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{namespacecompmath_ab4cf9854d18ca2d0c75b36489ea684d8}\index{compmath@{compmath}!differentiate\_twice@{differentiate\_twice}}
+\index{differentiate\_twice@{differentiate\_twice}!compmath@{compmath}}
+\doxysubsubsection{\texorpdfstring{differentiate\_twice()}{differentiate\_twice()}}
+{\footnotesize\ttfamily \label{namespacecompmath_ab4cf9854d18ca2d0c75b36489ea684d8} 
+template$<$typename T$>$ \\
+std\+::vector$<$ T $>$ \& compmath\+::differentiate\+\_\+twice (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ T $>$ \&}]{func}{, }\item[{std\+::vector$<$ T $>$ \&}]{result}{, }\item[{const T \&}]{h}{, }\item[{int}]{order}{ = {\ttfamily 2}}\end{DoxyParamCaption})}
+
+
+
+Numerically compute the second derivative of a sampled function using finite differences (second order). 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Numeric type (e.\+g., double, float) \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em func} & Vector of sampled function values \\
+\hline
+{\em result} & Vector to store the computed second derivative (must be same size as func) \\
+\hline
+{\em h} & Step size between samples \\
+\hline
+{\em order} & Order of the finite difference scheme (only 2 is implemented). Default\+: 2 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Reference to result vector containing the second derivative 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if order != 2 or if func and result sizes do not match \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{namespacecompmath_a44cc276c4629067ee3fd9d412866fe56}\index{compmath@{compmath}!export\_data\_to\_csv@{export\_data\_to\_csv}}
+\index{export\_data\_to\_csv@{export\_data\_to\_csv}!compmath@{compmath}}
+\doxysubsubsection{\texorpdfstring{export\_data\_to\_csv()}{export\_data\_to\_csv()}}
+{\footnotesize\ttfamily \label{namespacecompmath_a44cc276c4629067ee3fd9d412866fe56} 
+template$<$typename T$>$ \\
+int compmath\+::export\+\_\+data\+\_\+to\+\_\+csv (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{filename}{, }\item[{const std\+::vector$<$ T $>$ \&}]{x}{, }\item[{const std\+::vector$<$ T $>$ \&}]{func}{}\end{DoxyParamCaption})}
+
+
+
+Exports data to a CSV file. 
+
+This function writes the provided x-\/coordinates and corresponding function values to a CSV file. The output file will include a header row and the data in two columns\+: "{}x"{} and "{}value"{}.
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & The type of the elements in the vectors. Must support streaming to an output stream. \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & The name of the CSV file to create (relative to EXPORT\+\_\+\+PATH). \\
+\hline
+{\em x} & A vector containing the x-\/coordinates. \\
+\hline
+{\em func} & A vector containing the corresponding function values. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int Returns 0 on success, or -\/1 if the file could not be opened. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & If the sizes of {\ttfamily x} and {\ttfamily func} do not match. \\
+\hline
+{\em std\+::runtime\+\_\+error} & If the directory specified by EXPORT\+\_\+\+PATH cannot be created.\\
+\hline
+\end{DoxyExceptions}
+\begin{DoxyNote}{Note}
+The directory specified by EXPORT\+\_\+\+PATH must exist or be creatable. Ensure that the type {\ttfamily T} supports the {\ttfamily \texorpdfstring{$<$}{<}\texorpdfstring{$<$}{<}} operator for output streams. 
+\end{DoxyNote}
+\Hypertarget{namespacecompmath_a52e2ea9905606b84ae806e0a53e03784}\index{compmath@{compmath}!integrate\_rect@{integrate\_rect}}
+\index{integrate\_rect@{integrate\_rect}!compmath@{compmath}}
+\doxysubsubsection{\texorpdfstring{integrate\_rect()}{integrate\_rect()}}
+{\footnotesize\ttfamily \label{namespacecompmath_a52e2ea9905606b84ae806e0a53e03784} 
+template$<$typename T, typename Func$>$ \\
+T compmath\+::integrate\+\_\+rect (\begin{DoxyParamCaption}\item[{Func}]{func}{, }\item[{T}]{a}{, }\item[{T}]{b}{, }\item[{size\+\_\+t}]{n}{ = {\ttfamily 1000}, }\item[{const std\+::string \&}]{method}{ = {\ttfamily "{}left"{}}}\end{DoxyParamCaption})}
+
+
+
+Numerically integrate a function using the rectangle (left, right, or midpoint) rule. 
+
+\begin{DoxyNote}{Note}
+Order\+: 1 (left, right) / 2 (modpoint)
+\end{DoxyNote}
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Numeric type (e.\+g., double, float) \\
+\hline
+{\em Func} & Callable type\+: T func(\+T) \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em func} & Function to integrate \\
+\hline
+{\em a} & Lower bound of integration \\
+\hline
+{\em b} & Upper bound of integration \\
+\hline
+{\em n} & Number of intervals (default\+: 1000) \\
+\hline
+{\em method} & Rectangle method\+: "{}left"{}, "{}right"{}, or "{}midpoint"{} (default\+: "{}left"{}) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Approximate value of the definite integral of func from a to b 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if n == 0 or method is unknown \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{namespacecompmath_a3c475f9baafb9044e7774b0b06d0a208}\index{compmath@{compmath}!integrate\_simpson@{integrate\_simpson}}
+\index{integrate\_simpson@{integrate\_simpson}!compmath@{compmath}}
+\doxysubsubsection{\texorpdfstring{integrate\_simpson()}{integrate\_simpson()}}
+{\footnotesize\ttfamily \label{namespacecompmath_a3c475f9baafb9044e7774b0b06d0a208} 
+template$<$typename T, typename Func$>$ \\
+T compmath\+::integrate\+\_\+simpson (\begin{DoxyParamCaption}\item[{Func}]{func}{, }\item[{T}]{a}{, }\item[{T}]{b}{, }\item[{size\+\_\+t}]{n}{ = {\ttfamily 1000}}\end{DoxyParamCaption})}
+
+
+
+Numerically integrate a function using Simpson\textquotesingle{}s rule. 
+
+\begin{DoxyNote}{Note}
+Order\+: 4
+\end{DoxyNote}
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Numeric type (e.\+g., double, float) \\
+\hline
+{\em Func} & Callable type\+: T func(\+T) \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em func} & Function to integrate \\
+\hline
+{\em a} & Lower bound of integration \\
+\hline
+{\em b} & Upper bound of integration \\
+\hline
+{\em n} & Number of intervals (must be even, default\+: 1000) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Approximate value of the definite integral of func from a to b 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if n == 0 or n is not even \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{namespacecompmath_a33f82ca4615c994c81dec1641dbaff4d}\index{compmath@{compmath}!integrate\_trapez@{integrate\_trapez}}
+\index{integrate\_trapez@{integrate\_trapez}!compmath@{compmath}}
+\doxysubsubsection{\texorpdfstring{integrate\_trapez()}{integrate\_trapez()}}
+{\footnotesize\ttfamily \label{namespacecompmath_a33f82ca4615c994c81dec1641dbaff4d} 
+template$<$typename T, typename Func$>$ \\
+T compmath\+::integrate\+\_\+trapez (\begin{DoxyParamCaption}\item[{Func}]{func}{, }\item[{T}]{a}{, }\item[{T}]{b}{, }\item[{size\+\_\+t}]{n}{ = {\ttfamily 1000}}\end{DoxyParamCaption})}
+
+
+
+Numerically integrate a function using the trapezoidal rule. 
+
+\begin{DoxyNote}{Note}
+Order\+: 2
+\end{DoxyNote}
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Numeric type (e.\+g., double, float) \\
+\hline
+{\em Func} & Callable type\+: T func(\+T) \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em func} & Function to integrate (can be a function pointer, lambda, or functor) \\
+\hline
+{\em a} & Lower bound of integration \\
+\hline
+{\em b} & Upper bound of integration \\
+\hline
+{\em n} & Number of intervals (default\+: 1000) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Approximate value of the definite integral of func from a to b 
+\end{DoxyReturn}
+\Hypertarget{namespacecompmath_ae332ac5a218c1e969ac34f0dcf77932c}\index{compmath@{compmath}!interpolate\_lagrange@{interpolate\_lagrange}}
+\index{interpolate\_lagrange@{interpolate\_lagrange}!compmath@{compmath}}
+\doxysubsubsection{\texorpdfstring{interpolate\_lagrange()}{interpolate\_lagrange()}}
+{\footnotesize\ttfamily \label{namespacecompmath_ae332ac5a218c1e969ac34f0dcf77932c} 
+template$<$typename T$>$ \\
+std\+::function$<$ T(T)$>$ compmath\+::interpolate\+\_\+lagrange (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ T $>$ \&}]{x\+\_\+nodes}{, }\item[{const std\+::vector$<$ T $>$ \&}]{y\+\_\+values}{}\end{DoxyParamCaption})}
+
+
+
+Constructs a Lagrange interpolating polynomial. 
+
+Given nodes (x\+\_\+nodes) and their corresponding values (y\+\_\+values), this function returns a callable object representing the Lagrange interpolation polynomial.
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Numeric type (e.\+g., double, float) \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em x\+\_\+nodes} & Vector of x-\/coordinates of interpolation nodes \\
+\hline
+{\em y\+\_\+values} & Vector of y-\/coordinates (function values at nodes) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::function$<$\+T(\+T)$>$ Callable polynomial function 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if x\+\_\+nodes and y\+\_\+values have different sizes \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{namespacecompmath_a6d47857737d820e46dfe9c56bd5e23bc}\index{compmath@{compmath}!interpolate\_newton@{interpolate\_newton}}
+\index{interpolate\_newton@{interpolate\_newton}!compmath@{compmath}}
+\doxysubsubsection{\texorpdfstring{interpolate\_newton()}{interpolate\_newton()}}
+{\footnotesize\ttfamily \label{namespacecompmath_a6d47857737d820e46dfe9c56bd5e23bc} 
+template$<$typename T$>$ \\
+std\+::function$<$ T(T)$>$ compmath\+::interpolate\+\_\+newton (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ T $>$ \&}]{x\+\_\+nodes}{, }\item[{const std\+::vector$<$ T $>$ \&}]{y\+\_\+values}{}\end{DoxyParamCaption})}
+
+
+
+Constructs a Newton interpolating polynomial. 
+
+Given nodes (x\+\_\+nodes) and their corresponding values (y\+\_\+values), this function returns a callable object representing the Newton interpolation polynomial.
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Numeric type (e.\+g., double, float) \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em x\+\_\+nodes} & Vector of x-\/coordinates of interpolation nodes \\
+\hline
+{\em y\+\_\+values} & Vector of y-\/coordinates (function values at nodes) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::function$<$\+T(\+T)$>$ Callable polynomial function 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em std\+::invalid\+\_\+argument} & if x\+\_\+nodes and y\+\_\+values have different sizes \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{namespacecompmath_af77c049ec35355071ef75407122277ff}\index{compmath@{compmath}!norm\_1@{norm\_1}}
+\index{norm\_1@{norm\_1}!compmath@{compmath}}
+\doxysubsubsection{\texorpdfstring{norm\_1()}{norm\_1()}}
+{\footnotesize\ttfamily \label{namespacecompmath_af77c049ec35355071ef75407122277ff} 
+template$<$typename T$>$ \\
+T compmath\+::norm\+\_\+1 (\begin{DoxyParamCaption}\item[{std\+::vector$<$ T $>$ \&}]{v1}{, }\item[{std\+::vector$<$ T $>$ \&}]{v2}{}\end{DoxyParamCaption})}
+
+\Hypertarget{namespacecompmath_ad08662a56b319d717d938db959cfe7a4}\index{compmath@{compmath}!norm\_inf@{norm\_inf}}
+\index{norm\_inf@{norm\_inf}!compmath@{compmath}}
+\doxysubsubsection{\texorpdfstring{norm\_inf()}{norm\_inf()}}
+{\footnotesize\ttfamily \label{namespacecompmath_ad08662a56b319d717d938db959cfe7a4} 
+template$<$typename T$>$ \\
+T compmath\+::norm\+\_\+inf (\begin{DoxyParamCaption}\item[{std\+::vector$<$ T $>$ \&}]{v1}{, }\item[{std\+::vector$<$ T $>$ \&}]{v2}{}\end{DoxyParamCaption})}
+
+\Hypertarget{namespacecompmath_a21a03ac311257f7decb5f7cf9473ee56}\index{compmath@{compmath}!runge\_kutta@{runge\_kutta}}
+\index{runge\_kutta@{runge\_kutta}!compmath@{compmath}}
+\doxysubsubsection{\texorpdfstring{runge\_kutta()}{runge\_kutta()}}
+{\footnotesize\ttfamily \label{namespacecompmath_a21a03ac311257f7decb5f7cf9473ee56} 
+template$<$typename T, typename Func$>$ \\
+std\+::vector$<$ std\+::vector$<$ T $>$ $>$ compmath\+::runge\+\_\+kutta (\begin{DoxyParamCaption}\item[{Func}]{f}{, }\item[{const std\+::vector$<$ T $>$ \&}]{f\+\_\+t0}{, }\item[{T}]{t1}{, }\item[{T}]{t2}{, }\item[{T}]{h}{}\end{DoxyParamCaption})}
+
+
+
+Solves an ODE system using the 4th order Runge-\/\+Kutta method. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Numeric type \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em f} & The right-\/hand side function\+: f(t, state) -\/\texorpdfstring{$>$}{>} std\+::vector$<$\+T$>$ \\
+\hline
+{\em f\+\_\+t0} & Initial state vector at t1 \\
+\hline
+{\em t1} & Initial time \\
+\hline
+{\em t2} & Final time \\
+\hline
+{\em h} & Step size \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::vector$<$std\+::vector$<$\+T$>$$>$ Solution at each time step 
+\end{DoxyReturn}
+\Hypertarget{namespacecompmath_a039b77c1cc6b56852fc495d7628ca41c}\index{compmath@{compmath}!runge\_rule@{runge\_rule}}
+\index{runge\_rule@{runge\_rule}!compmath@{compmath}}
+\doxysubsubsection{\texorpdfstring{runge\_rule()}{runge\_rule()}}
+{\footnotesize\ttfamily \label{namespacecompmath_a039b77c1cc6b56852fc495d7628ca41c} 
+template$<$typename T, typename Func, typename Integrator$>$ \\
+std\+::pair$<$ T, T $>$ compmath\+::runge\+\_\+rule (\begin{DoxyParamCaption}\item[{Integrator}]{integrator}{, }\item[{Func}]{func}{, }\item[{T}]{a}{, }\item[{T}]{b}{, }\item[{size\+\_\+t}]{n}{, }\item[{int}]{order}{}\end{DoxyParamCaption})}
+
+
+
+Estimate the integral and its error using Runge\textquotesingle{}s rule. 
+
+This function computes the integral of a function using a specified integration method with two different numbers of intervals (n1 and n2), and estimates the error using Runge\textquotesingle{}s rule.
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Numeric type (e.\+g., double, float) \\
+\hline
+{\em Func} & Callable type\+: T func(\+T) \\
+\hline
+{\em Integrator} & Callable type for integration method\+: T integrator(\+Func, T, T, size\+\_\+t) \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em integrator} & Integration method (e.\+g., integrate\+\_\+simpson, integrate\+\_\+trapez, integrate\+\_\+rect) \\
+\hline
+{\em func} & Function to integrate \\
+\hline
+{\em a} & Lower bound of integration (specify type! ex\+: 3.\+0, not 3) \\
+\hline
+{\em b} & Upper bound of integration (specify type! ex\+: 3.\+0, not 3) \\
+\hline
+{\em n} & Number of intervals for the first estimate (result estimate will use 2\texorpdfstring{$\ast$}{*}n) \\
+\hline
+{\em order} & The order of the integration method (e.\+g., 2 for trapezoidal, 4 for Simpson) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::pair$<$\+T, T$>$ where first is the refined integral estimate (using n2), and second is the estimated error
+\end{DoxyReturn}
+\begin{DoxyNote}{Note}
+Example usage\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{auto}\ [I2n,\ error]\ =\ \mbox{\hyperlink{namespacecompmath_a039b77c1cc6b56852fc495d7628ca41c}{compmath::runge\_rule}}(}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{namespacecompmath_a3c475f9baafb9044e7774b0b06d0a208}{compmath::integrate\_simpson}}<\textcolor{keywordtype}{double},\ \textcolor{keyword}{decltype}(f)>,\ f,\ 0.0,\ M\_PI,\ 10,\ 4}
+\DoxyCodeLine{);}
+
+\end{DoxyCode}
+ 
+\end{DoxyNote}
+\Hypertarget{namespacecompmath_a209404be0ca6feb45a0155cd802ea649}\index{compmath@{compmath}!solve\_diff\_euler@{solve\_diff\_euler}}
+\index{solve\_diff\_euler@{solve\_diff\_euler}!compmath@{compmath}}
+\doxysubsubsection{\texorpdfstring{solve\_diff\_euler()}{solve\_diff\_euler()}}
+{\footnotesize\ttfamily \label{namespacecompmath_a209404be0ca6feb45a0155cd802ea649} 
+template$<$typename T, typename Func$>$ \\
+std\+::vector$<$ std\+::vector$<$ T $>$ $>$ compmath\+::solve\+\_\+diff\+\_\+euler (\begin{DoxyParamCaption}\item[{Func}]{f}{, }\item[{const std\+::vector$<$ T $>$ \&}]{f\+\_\+t0}{, }\item[{T}]{t1}{, }\item[{T}]{t2}{, }\item[{T}]{h}{}\end{DoxyParamCaption})}
+
+
+
+Solves an ODE system using the Euler method (1st order). 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Numeric type (e.\+g., double, float) \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em f} & The right-\/hand side function\+: f(t, state) -\/\texorpdfstring{$>$}{>} std\+::vector$<$\+T$>$ \\
+\hline
+{\em f\+\_\+t0} & Initial state vector at t1 \\
+\hline
+{\em t1} & Initial time \\
+\hline
+{\em t2} & Final time \\
+\hline
+{\em h} & Step size \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::vector$<$std\+::vector$<$\+T$>$$>$ Solution at each time step 
+\end{DoxyReturn}
+\Hypertarget{namespacecompmath_a3f6006ea7575b36cc1e8ca439b0bd23a}\index{compmath@{compmath}!solve\_diff\_trapez@{solve\_diff\_trapez}}
+\index{solve\_diff\_trapez@{solve\_diff\_trapez}!compmath@{compmath}}
+\doxysubsubsection{\texorpdfstring{solve\_diff\_trapez()}{solve\_diff\_trapez()}}
+{\footnotesize\ttfamily \label{namespacecompmath_a3f6006ea7575b36cc1e8ca439b0bd23a} 
+template$<$typename T, typename Func$>$ \\
+std\+::vector$<$ std\+::vector$<$ T $>$ $>$ compmath\+::solve\+\_\+diff\+\_\+trapez (\begin{DoxyParamCaption}\item[{Func}]{f}{, }\item[{const std\+::vector$<$ T $>$ \&}]{f\+\_\+t0}{, }\item[{T}]{t1}{, }\item[{T}]{t2}{, }\item[{T}]{h}{}\end{DoxyParamCaption})}
+
+
+
+Solves an ODE system using the Trapezoidal method (2nd order). 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Numeric type \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em f} & The right-\/hand side function\+: f(t, state) -\/\texorpdfstring{$>$}{>} std\+::vector$<$\+T$>$ \\
+\hline
+{\em f\+\_\+t0} & Initial state vector at t1 \\
+\hline
+{\em t1} & Initial time \\
+\hline
+{\em t2} & Final time \\
+\hline
+{\em h} & Step size \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::vector$<$std\+::vector$<$\+T$>$$>$ Solution at each time step 
+\end{DoxyReturn}

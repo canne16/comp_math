@@ -1,0 +1,22 @@
+\doxysection{include/integration.hh File Reference}
+\hypertarget{integration_8hh}{}\label{integration_8hh}\index{include/integration.hh@{include/integration.hh}}
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$stdexcept$>$}\newline
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacecompmath}{compmath}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T, typename Func$>$ }\\T \mbox{\hyperlink{namespacecompmath_a33f82ca4615c994c81dec1641dbaff4d}{compmath\+::integrate\+\_\+trapez}} (Func func, T a, T b, size\+\_\+t n=1000)
+\begin{DoxyCompactList}\small\item\em Numerically integrate a function using the trapezoidal rule. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T, typename Func$>$ }\\T \mbox{\hyperlink{namespacecompmath_a52e2ea9905606b84ae806e0a53e03784}{compmath\+::integrate\+\_\+rect}} (Func func, T a, T b, size\+\_\+t n=1000, const std\+::string \&method="{}left"{})
+\begin{DoxyCompactList}\small\item\em Numerically integrate a function using the rectangle (left, right, or midpoint) rule. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T, typename Func$>$ }\\T \mbox{\hyperlink{namespacecompmath_a3c475f9baafb9044e7774b0b06d0a208}{compmath\+::integrate\+\_\+simpson}} (Func func, T a, T b, size\+\_\+t n=1000)
+\begin{DoxyCompactList}\small\item\em Numerically integrate a function using Simpson\textquotesingle{}s rule. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T, typename Func, typename Integrator$>$ }\\std\+::pair$<$ T, T $>$ \mbox{\hyperlink{namespacecompmath_a039b77c1cc6b56852fc495d7628ca41c}{compmath\+::runge\+\_\+rule}} (Integrator integrator, Func func, T a, T b, size\+\_\+t n, int order)
+\begin{DoxyCompactList}\small\item\em Estimate the integral and its error using Runge\textquotesingle{}s rule. \end{DoxyCompactList}\end{DoxyCompactItemize}

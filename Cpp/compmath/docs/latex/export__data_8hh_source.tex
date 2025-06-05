@@ -1,0 +1,53 @@
+\doxysection{export\+\_\+data.\+hh}
+\hypertarget{export__data_8hh_source}{}\label{export__data_8hh_source}\index{include/export\_data.hh@{include/export\_data.hh}}
+\mbox{\hyperlink{export__data_8hh}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <fstream>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <stdexcept>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <filesystem>}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#include\ "{}Config.hh"{}}}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacecompmath}{compmath}}\ \{}
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{namespacecompmath_a13585df5be30268018e8805cccce6c5c}{create\_directory}}(\textcolor{keyword}{const}\ std::string\&\ dir);}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00034\ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00035\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{namespacecompmath_a44cc276c4629067ee3fd9d412866fe56}{export\_data\_to\_csv}}(\textcolor{keyword}{const}\ std::string\&\ filename,\ }
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<T>\&\ x,\ }
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<T>\&\ func)\ \{}
+\DoxyCodeLine{00038\ \ \ \ \ }
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordflow}{if}\ (x.size()\ !=\ func.size())\ \{}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}x\_coords\ and\ func\_values\ must\ have\ the\ same\ size"{}});}
+\DoxyCodeLine{00041\ \ \ \ \ \}}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{namespacecompmath_a13585df5be30268018e8805cccce6c5c}{create\_directory}}(EXPORT\_PATH)\ !=\ 0)\ \{}
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::runtime\_error(\textcolor{stringliteral}{"{}Failed\ to\ create\ directory"{}});}
+\DoxyCodeLine{00045\ \ \ \ \ \}}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00047\ \ \ \ \ std::ofstream\ file(EXPORT\_PATH\ +\ filename);}
+\DoxyCodeLine{00048\ \ \ \ \ \textcolor{keywordflow}{if}\ (!file.is\_open())\ \{}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ -\/1;\ \textcolor{comment}{//\ Error\ opening\ file}}
+\DoxyCodeLine{00050\ \ \ \ \ \}}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \ \ \ \ \textcolor{comment}{//\ Write\ CSV\ header}}
+\DoxyCodeLine{00053\ \ \ \ \ file\ <<\ \textcolor{stringliteral}{"{}x,\ value\(\backslash\)n"{}};}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{comment}{//\ Write\ data}}
+\DoxyCodeLine{00056\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ x.size();\ ++i)\ \{}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ file\ <<\ x[i]\ <<\ \textcolor{stringliteral}{"{},"{}}\ <<\ func[i]\ <<\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}};}
+\DoxyCodeLine{00058\ \ \ \ \ \}}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ \ \ file.close();}
+\DoxyCodeLine{00061\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{00062\ \}}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \}}
+
+\end{DoxyCode}

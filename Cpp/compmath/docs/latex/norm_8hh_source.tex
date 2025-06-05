@@ -1,0 +1,44 @@
+\doxysection{norm.\+hh}
+\hypertarget{norm_8hh_source}{}\label{norm_8hh_source}\index{include/norm.hh@{include/norm.hh}}
+\mbox{\hyperlink{norm_8hh}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#include\ <cmath>}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <stdexcept>}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacecompmath}{compmath}}\ \{}
+\DoxyCodeLine{00006\ \ \ \ \ }
+\DoxyCodeLine{00007\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00008\ T\ \mbox{\hyperlink{namespacecompmath_ad08662a56b319d717d938db959cfe7a4}{norm\_inf}}\ (std::vector<T>\ \&v1,\ std::vector<T>\ \&v2)\ \{}
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keywordflow}{if}\ (v1.size()\ !=\ v2.size())}
+\DoxyCodeLine{00010\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}Vectors\ must\ be\ of\ the\ same\ size"{}});}
+\DoxyCodeLine{00011\ \ \ \ \ }
+\DoxyCodeLine{00012\ \ \ \ \ T\ norm\ =\ 0.0;}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ v1.size();\ ++i)}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ norm\ =\ std::abs(v1[i]\ -\/\ v2[i])\ <=\ norm\ ?\ norm\ :\ std::abs(v1[i]\ -\/\ v2[i]);}
+\DoxyCodeLine{00016\ \ \ \ \ }
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keywordflow}{return}\ norm;}
+\DoxyCodeLine{00018\ \}}
+\DoxyCodeLine{00019\ }
+\DoxyCodeLine{00020\ \textcolor{comment}{//\ TODO:\ check\ if\ this\ is\ the\ correct\ implementation}}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00022\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00023\ T\ \mbox{\hyperlink{namespacecompmath_af77c049ec35355071ef75407122277ff}{norm\_1}}\ (std::vector<T>\ \&v1,\ std::vector<T>\ \&v2)\ \{}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keywordflow}{if}\ (v1.size()\ !=\ v2.size())}
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}Vectors\ must\ be\ of\ the\ same\ size"{}});}
+\DoxyCodeLine{00026\ \ \ \ \ }
+\DoxyCodeLine{00027\ \ \ \ \ T\ norm\ \{\};}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ v1.size();\ ++i)}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ norm\ +=\ std::abs(v1[i]\ -\/\ v2[i]);}
+\DoxyCodeLine{00031\ \ \ \ \ }
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordflow}{return}\ norm;}
+\DoxyCodeLine{00033\ \}}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00038\ \}}
+
+\end{DoxyCode}

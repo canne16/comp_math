@@ -1,0 +1,30 @@
+\doxysection{include/interpolation.hh File Reference}
+\hypertarget{interpolation_8hh}{}\label{interpolation_8hh}\index{include/interpolation.hh@{include/interpolation.hh}}
+
+
+Interpolation methods for numerical analysis.  
+
+
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$stdexcept$>$}\newline
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$functional$>$}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacecompmath}{compmath}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T$>$ }\\std\+::function$<$ T(T)$>$ \mbox{\hyperlink{namespacecompmath_ae332ac5a218c1e969ac34f0dcf77932c}{compmath\+::interpolate\+\_\+lagrange}} (const std\+::vector$<$ T $>$ \&x\+\_\+nodes, const std\+::vector$<$ T $>$ \&y\+\_\+values)
+\begin{DoxyCompactList}\small\item\em Constructs a Lagrange interpolating polynomial. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T$>$ }\\std\+::function$<$ T(T)$>$ \mbox{\hyperlink{namespacecompmath_a6d47857737d820e46dfe9c56bd5e23bc}{compmath\+::interpolate\+\_\+newton}} (const std\+::vector$<$ T $>$ \&x\+\_\+nodes, const std\+::vector$<$ T $>$ \&y\+\_\+values)
+\begin{DoxyCompactList}\small\item\em Constructs a Newton interpolating polynomial. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Interpolation methods for numerical analysis. 
+
+Provides functions to construct interpolating polynomials using Lagrange and Newton methods. 

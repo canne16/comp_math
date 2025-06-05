@@ -1,0 +1,18 @@
+\doxysection{include/differentiation.hh File Reference}
+\hypertarget{differentiation_8hh}{}\label{differentiation_8hh}\index{include/differentiation.hh@{include/differentiation.hh}}
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$stdexcept$>$}\newline
+{\ttfamily \#include $<$cassert$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacecompmath}{compmath}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T$>$ }\\std\+::vector$<$ T $>$ \& \mbox{\hyperlink{namespacecompmath_ac7fa18b197e428b2076af1cda7a1d6d8}{compmath\+::differentiate}} (const std\+::vector$<$ T $>$ \&func, std\+::vector$<$ T $>$ \&result, const T \&h, int order=2)
+\begin{DoxyCompactList}\small\item\em Numerically compute the first derivative of a sampled function using finite differences. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T$>$ }\\std\+::vector$<$ T $>$ \& \mbox{\hyperlink{namespacecompmath_ab4cf9854d18ca2d0c75b36489ea684d8}{compmath\+::differentiate\+\_\+twice}} (const std\+::vector$<$ T $>$ \&func, std\+::vector$<$ T $>$ \&result, const T \&h, int order=2)
+\begin{DoxyCompactList}\small\item\em Numerically compute the second derivative of a sampled function using finite differences (second order). \end{DoxyCompactList}\end{DoxyCompactItemize}

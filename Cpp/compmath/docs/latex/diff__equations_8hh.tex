@@ -1,0 +1,20 @@
+\doxysection{include/diff\+\_\+equations.hh File Reference}
+\hypertarget{diff__equations_8hh}{}\label{diff__equations_8hh}\index{include/diff\_equations.hh@{include/diff\_equations.hh}}
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$functional$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$stdexcept$>$}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacecompmath}{compmath}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T, typename Func$>$ }\\std\+::vector$<$ std\+::vector$<$ T $>$ $>$ \mbox{\hyperlink{namespacecompmath_a209404be0ca6feb45a0155cd802ea649}{compmath\+::solve\+\_\+diff\+\_\+euler}} (Func f, const std\+::vector$<$ T $>$ \&f\+\_\+t0, T t1, T t2, T h)
+\begin{DoxyCompactList}\small\item\em Solves an ODE system using the Euler method (1st order). \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T, typename Func$>$ }\\std\+::vector$<$ std\+::vector$<$ T $>$ $>$ \mbox{\hyperlink{namespacecompmath_a3f6006ea7575b36cc1e8ca439b0bd23a}{compmath\+::solve\+\_\+diff\+\_\+trapez}} (Func f, const std\+::vector$<$ T $>$ \&f\+\_\+t0, T t1, T t2, T h)
+\begin{DoxyCompactList}\small\item\em Solves an ODE system using the Trapezoidal method (2nd order). \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T, typename Func$>$ }\\std\+::vector$<$ std\+::vector$<$ T $>$ $>$ \mbox{\hyperlink{namespacecompmath_a21a03ac311257f7decb5f7cf9473ee56}{compmath\+::runge\+\_\+kutta}} (Func f, const std\+::vector$<$ T $>$ \&f\+\_\+t0, T t1, T t2, T h)
+\begin{DoxyCompactList}\small\item\em Solves an ODE system using the 4th order Runge-\/\+Kutta method. \end{DoxyCompactList}\end{DoxyCompactItemize}

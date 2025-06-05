@@ -1,0 +1,20 @@
+\doxysection{include/export\+\_\+data.hh File Reference}
+\hypertarget{export__data_8hh}{}\label{export__data_8hh}\index{include/export\_data.hh@{include/export\_data.hh}}
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$stdexcept$>$}\newline
+{\ttfamily \#include $<$filesystem$>$}\newline
+{\ttfamily \#include "{}Config.\+hh"{}}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespacecompmath}{compmath}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{namespacecompmath_a13585df5be30268018e8805cccce6c5c}{compmath\+::create\+\_\+directory}} (const std\+::string \&dir)
+\item 
+{\footnotesize template$<$typename T$>$ }\\int \mbox{\hyperlink{namespacecompmath_a44cc276c4629067ee3fd9d412866fe56}{compmath\+::export\+\_\+data\+\_\+to\+\_\+csv}} (const std\+::string \&filename, const std\+::vector$<$ T $>$ \&x, const std\+::vector$<$ T $>$ \&func)
+\begin{DoxyCompactList}\small\item\em Exports data to a CSV file. \end{DoxyCompactList}\end{DoxyCompactItemize}

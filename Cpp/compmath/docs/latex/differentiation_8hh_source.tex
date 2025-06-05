@@ -1,0 +1,88 @@
+\doxysection{differentiation.\+hh}
+\hypertarget{differentiation_8hh_source}{}\label{differentiation_8hh_source}\index{include/differentiation.hh@{include/differentiation.hh}}
+\mbox{\hyperlink{differentiation_8hh}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <stdexcept>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <cassert>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <cmath>}}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00008\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespacecompmath}{compmath}}\ \{}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00022\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00023\ std::vector<T>\&\ \mbox{\hyperlink{namespacecompmath_ac7fa18b197e428b2076af1cda7a1d6d8}{differentiate}}(}
+\DoxyCodeLine{00024\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<T>\ \&func,}
+\DoxyCodeLine{00025\ \ \ \ \ std::vector<T>\&\ result,}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keyword}{const}\ T\ \&h,\ }
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{int}\ order\ =\ 2}
+\DoxyCodeLine{00028\ )\{}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keywordflow}{if}\ (order\ !=\ 1\ \&\&\ order\ !=\ 2\ \&\&\ order\ !=\ 4)}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}Invalid\ order\ of\ differentiation"{}});}
+\DoxyCodeLine{00031\ \ \ \ \ }
+\DoxyCodeLine{00032\ \ \ \ \ \textcolor{keywordflow}{if}\ (func.size()\ !=\ result.size())}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}Derivative\ must\ be\ the\ same\ shape\ as\ function"{}});}
+\DoxyCodeLine{00034\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ len\ =\ func.size();}
+\DoxyCodeLine{00036\ \ \ \ \ }
+\DoxyCodeLine{00037\ \ \ \ \ \textcolor{keywordflow}{if}\ (order\ ==\ 1)\ \{}
+\DoxyCodeLine{00038\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 0;\ i\ <\ len\ -\/\ 1;\ ++i)}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \ \ \ \ result[i]\ =\ (func[i\ +\ 1]\ -\/\ func[i])\ /\ h;}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ result[len-\/1]\ =\ (func[len-\/1]\ -\/\ func[len-\/2])\ /\ h;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ left\ margin}}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (order\ ==\ 2)\ \{}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 1;\ i\ <\ len\ -\/\ 1;\ ++i)}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ result[i]\ =\ (func[i\ +\ 1]\ -\/\ func[i-\/1])\ /\ (2*h);}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ result[0]\ \ \ \ \ =\ (-\/3*func[0]\ \ \ \ \ +\ 4*func[1]\ \ \ \ \ -\/\ func[2]\ \ \ \ )\ /\ (2*h);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ left\ margin}}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ result[len-\/1]\ =\ (\ 3*func[len-\/1]\ -\/\ 4*func[len-\/2]\ +\ func[len-\/3])\ /\ (2*h);\ \ \textcolor{comment}{//\ right\ margin}}
+\DoxyCodeLine{00051\ \ \ \ \ }
+\DoxyCodeLine{00052\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (order\ ==\ 4)\ \{}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 2;\ i\ <\ len\ -\/\ 2;\ ++i)}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ result[i]\ =\ (func[i-\/2]\ -\/\ 8*func[i-\/1]\ +\ 8*func[i+1]\ -\/\ func[i+2])\ /\ (12*h);}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ result[0]\ =\ (-\/25*func[0]\ +\ 48*func[1]\ -\/\ 36*func[2]\ +\ 16*func[3]\ -\/\ 3*func[4])\ /\ (12*h);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ left\ margin}}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ result[1]\ =\ (\ -\/3*func[0]\ -\/\ 10*func[1]\ +\ 18*func[2]\ -\/\ \ 6*func[3]\ +\ \ \ func[4])\ /\ (12*h);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ left\ margin}}
+\DoxyCodeLine{00059\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ result[len-\/1]\ =\ (25*func[len-\/1]\ -\/\ 48*func[len-\/2]\ +\ 36*func[len-\/3]\ -\/\ 16*func[len-\/4]\ +\ 3*func[len-\/5])\ /\ (12*h);\ \ \textcolor{comment}{//\ right\ margin}}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ result[len-\/2]\ =\ (\ 3*func[len-\/1]\ +\ 10*func[len-\/2]\ -\/\ 18*func[len-\/3]\ +\ \ 6*func[len-\/4]\ -\/\ \ \ func[len-\/5])\ /\ (12*h);\ \ \textcolor{comment}{//\ right\ margin}}
+\DoxyCodeLine{00062\ \ \ \ \ }
+\DoxyCodeLine{00063\ \ \ \ \ \}}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00066\ \}}
+\DoxyCodeLine{00067\ }
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00080\ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{00081\ std::vector<T>\&\ \mbox{\hyperlink{namespacecompmath_ab4cf9854d18ca2d0c75b36489ea684d8}{differentiate\_twice}}(}
+\DoxyCodeLine{00082\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<T>\ \&func,\ }
+\DoxyCodeLine{00083\ \ \ \ \ std::vector<T>\&\ result,}
+\DoxyCodeLine{00084\ \ \ \ \ \textcolor{keyword}{const}\ T\ \&h,\ }
+\DoxyCodeLine{00085\ \ \ \ \ \textcolor{keywordtype}{int}\ order\ =\ 2}
+\DoxyCodeLine{00086\ )\{}
+\DoxyCodeLine{00087\ \ \ \ \ \textcolor{keywordflow}{if}\ (order\ !=\ 2)}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}Not\ implemented\ for\ order\ !=\ 2"{}});}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00090\ \ \ \ \ \textcolor{keywordflow}{if}\ (func.size()\ !=\ result.size())}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ std::invalid\_argument(\textcolor{stringliteral}{"{}Derivative\ must\ be\ the\ same\ shape\ as\ function"{}});}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00093\ \ \ \ \ \textcolor{keywordtype}{size\_t}\ len\ =\ func.size();}
+\DoxyCodeLine{00094\ \ \ \ \ }
+\DoxyCodeLine{00095\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{size\_t}\ i\ =\ 1;\ i\ <\ len\ -\/\ 1;\ ++i)}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ result[i]\ =\ (func[i+1]\ -\/\ 2*func[i]\ +\ func[i-\/1])\ /\ pow(h,\ 2);}
+\DoxyCodeLine{00097\ }
+\DoxyCodeLine{00098\ \ \ \ \ result[0]\ \ \ \ \ =\ (2*func[0]\ \ \ \ \ -\/\ 5*func[1]\ \ \ \ \ +\ 4*func[2]\ \ \ \ \ -\/\ func[3]\ \ \ \ )\ /\ pow(h,\ 2);\ \ \textcolor{comment}{//\ left\ margin}}
+\DoxyCodeLine{00099\ \ \ \ \ result[len-\/1]\ =\ (2*func[len-\/1]\ -\/\ 5*func[len-\/2]\ +\ 4*func[len-\/3]\ -\/\ func[len-\/4])\ /\ pow(h,\ 2);\ \ \textcolor{comment}{//\ right\ margin}}
+\DoxyCodeLine{00100\ }
+\DoxyCodeLine{00101\ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{00102\ \}}
+\DoxyCodeLine{00103\ }
+\DoxyCodeLine{00104\ \}}
+
+\end{DoxyCode}
